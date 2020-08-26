@@ -16,8 +16,7 @@ RUN ROOT=/kubectl emerge --quiet -C \
       app-admin/*\
       sys-apps/* \
       sys-kernel/* \
-      virtual/* \
-      sys-libs/ncurses
+      virtual/* 
 
 # ------------------- empty image
 FROM scratch
