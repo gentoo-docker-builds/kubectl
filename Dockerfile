@@ -1,6 +1,6 @@
 # ------------------- builder stage
 FROM gentoo/stage3-amd64 as builder
-ENV FEATURES="-mount-sandbox -ipc-sandbox -network-sandbox -pid-sandbox -usersandbox"
+ENV FEATURES="-mount-sandbox -ipc-sandbox -network-sandbox -pid-sandbox -sandbox -usersandbox"
 
 # ------------------- portage tree
 COPY --from=gentoo/portage:latest /var/db/repos/gentoo /var/db/repos/gentoo
