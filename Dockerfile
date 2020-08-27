@@ -8,7 +8,7 @@ COPY --from=gentoo/portage:latest /var/db/repos/gentoo /var/db/repos/gentoo
 # ------------------- emerge
 #RUN emerge -C sandbox
 RUN echo 'sys-cluster/kubernetes USE="kubectl -hardened -kube-apiserver -kube-controller-manager -kube-proxy -kube-scheduler -kubeadm -kubelet"' >> /etc/portage/package.use/kubectl
-RUN ROOT=/kubectl emerge sys-cluster/kubernetes
+RUN ROOT=/kubectl FEATURES='-usersandbox' emerge sys-cluster/kubernetes
 
 
 # ------------------- shrink
