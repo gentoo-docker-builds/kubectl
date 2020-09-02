@@ -11,7 +11,7 @@ RUN echo 'sys-cluster/kubernetes USE="kubectl -hardened -kube-apiserver -kube-co
 RUN ROOT=/kubectl FEATURES='-usersandbox' emerge sys-cluster/kubernetes
 RUN emerge sandbox
 
- ------------------- shrink
+# ------------------- shrink
 RUN ROOT=/kubectl emerge --quiet -C \
       app-admin/*\
       sys-apps/* \
