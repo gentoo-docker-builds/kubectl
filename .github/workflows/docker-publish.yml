@@ -34,7 +34,7 @@ jobs:
         id: version
 
       - name: latest kubectl version
-        run: echo 'Latest available awscli version in portage is' $LATEST
+        run: echo 'Latest available kubectl version in portage is' $LATEST
 
   build_image:
     needs: [check_version]
