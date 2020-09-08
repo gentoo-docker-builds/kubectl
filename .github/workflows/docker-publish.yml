@@ -47,7 +47,7 @@ jobs:
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
   push_container:
-    needs: [build_image]
+    needs: [build_image, check_version]
     runs-on: ubuntu-latest
     steps:
 
@@ -59,7 +59,7 @@ jobs:
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
 
           # Strip git ref prefix from portage run
-          VERSION=${{steps.check_version.outputs.LATEST}}
+          VERSION=${{needs.check_version.outputs.version}}
 
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
