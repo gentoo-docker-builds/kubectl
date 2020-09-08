@@ -36,7 +36,7 @@ jobs:
       - name: latest kubectl version
         run: echo 'Latest available kubectl version in portage is' $LATEST
 
-  build_image:
+  build_and_push:
     needs: [check_version]
     runs-on: ubuntu-latest
     steps:
@@ -45,11 +45,6 @@ jobs:
 
       - name: Build image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
-
-  push_container:
-    needs: [build_image, check_version]
-    runs-on: ubuntu-latest
-    steps:
 
       - name: Push image to GitHub Container Registry
         run: |
