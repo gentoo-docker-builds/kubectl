@@ -4,7 +4,7 @@
 
 # ------------------- portage tree
 #COPY --from=gentoo/portage:latest /var/db/repos/gentoo /var/db/repos/gentoo
-FROM ghcr.io/gentoo-docker-builds/gendev:latest
+FROM ghcr.io/gentoo-docker-builds/gendev:latest as builder
 
 # ------------------- emerge
 RUN emerge -C sandbox
