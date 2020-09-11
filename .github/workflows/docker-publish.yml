@@ -5,6 +5,8 @@ on:
     # Publish `master` as Docker `latest` image.
     branches:
       - master
+  schedule:
+    - cron: '0 3 * * *'
 
     # Publish `v1.2.3` tags as releases.
     tags:
@@ -55,7 +57,6 @@ jobs:
             echo "::set-output name=UPDATE::yes"
           fi
         id: version
-        shell: bash
 
   build_and_push:
     needs: [check_image_version]
