@@ -20,4 +20,5 @@ RUN ROOT=/kubectl FEATURES='-usersandbox' emerge sys-cluster/kubernetes && emerg
 
 # ------------------- empty image
 FROM scratch
+ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 COPY --from=builder /kubectl /
