@@ -55,6 +55,7 @@ jobs:
             echo "::set-output name=UPDATE::yes"
           fi
         id: version
+        shell: zsh
 
   build_and_push:
     needs: [check_image_version]
