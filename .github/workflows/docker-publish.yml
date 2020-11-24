@@ -26,7 +26,7 @@ jobs:
 
       - name: fetch latest available kubectl version in portage
         run: |
-          version=$(ACCEPT_KEYWORDS="~amd64" emerge -s sys-cluster/kubernetes | grep "Latest version available" | awk '{print $4}')
+          version=$(emerge -s "sys-cluster/kubectl$" | grep "Latest version available" | awk '{print $4}')
           echo "::set-output name=LATEST::$version"
         id: version
 
